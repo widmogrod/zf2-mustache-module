@@ -4,6 +4,7 @@ namespace Mustache\View;
 use Zend\View\Renderer\RendererInterface;
 use Zend\View\Resolver\ResolverInterface;
 use Zend\View\Model\ModelInterface;
+use Zend\View\Model\ViewModel;
 use Mustache\Exception as Exception;
 
 class Renderer implements RendererInterface

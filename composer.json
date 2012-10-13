@@ -1,0 +1,23 @@
+{
+    "name": "widmogrod/zf2-mustache-module",
+    "description": "Zend Framework 2 module providing integration with the Mustache rendering engine.",
+    "require": {
+		"php": ">=5.3.3",
+        "mustache/mustache": "2.*",
+		"zendframework/zendframework": "2.*",
+    },
+    "authors": [
+        {
+            "name": "Gabriel Habryn",
+            "email": "widmogrod@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "AsseticBundle": "src"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}

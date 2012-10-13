@@ -1,7 +1,7 @@
 {
-    "name": "widmogrod/zf2-mustache-module",
+    "name": "roelvanduijnhoven/zf2-mustache-module",
     "description": "Zend Framework 2 module providing integration with the Mustache rendering engine.",
-	"minimum-stability": "dev",
+    "minimum-stability": "dev",
     "require": {
 		"php": ">=5.3.3",
         "mustache/mustache": "2.*",

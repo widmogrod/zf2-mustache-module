@@ -3,9 +3,9 @@
     "description": "Zend Framework 2 module providing integration with the Mustache rendering engine.",
     "minimum-stability": "dev",
     "require": {
-		"php": ">=5.3.3",
+        "php": ">=5.3.3",
         "mustache/mustache": "2.*",
-		"zendframework/zendframework": "2.*"
+        "zendframework/zendframework": "2.*"
     },
     "authors": [
         {

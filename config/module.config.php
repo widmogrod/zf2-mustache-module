@@ -17,6 +17,6 @@ return array(
     'mustache' => array(
         'suffix' => 'mustache',
         'suffixLocked' => true,
-        'cache' => __DIR__ . '/../../../data/mustache'
+        'cache' => __DIR__ . '/../../../../data/mustache'
     ),
 );

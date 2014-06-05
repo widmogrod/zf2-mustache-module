@@ -5,7 +5,10 @@
     "require": {
         "php": ">=5.3.3",
         "mustache/mustache": "2.*",
-        "zendframework/zendframework": "2.*"
+        "zendframework/zendframework-servicemanager": "2.*",
+        "zendframework/zendframework-view": "2.*",
+        "zendframework/zendframework-eventmanager": "2.*",
+        "zendframework/zendframework-modulemanager": "2.*"
     },
     "authors": [
         {

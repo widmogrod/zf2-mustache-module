@@ -40,3 +40,16 @@ return array(
     ),
 );
 ```
+
+## How to configure partials
+
+  Add to your Application module config file (module.config.php)
+```php
+<?php
+return array(
+
+    'mustache' => array(
+        'partials_loader' => array( __DIR__ . '/../view/partials')
+    ),
+);
+```

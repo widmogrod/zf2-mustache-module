@@ -19,8 +19,8 @@ class RendererFactory implements FactoryInterface
         /** @var $resolver \Zend\View\Resolver\AggregateResolver */
         $resolver = $serviceLocator->get('ViewResolver');
         $resolver->attach($pathResolver, 2);
-
-        $engine = new \Mustache_Engine($config);
+        
+        $engine = new \Mustache_Engine( $this->setConfigs($config) );
 
         $renderer = new Renderer();
         $renderer->setEngine($engine);
@@ -29,5 +29,26 @@ class RendererFactory implements FactoryInterface
         $renderer->setResolver($resolver);
 
         return $renderer;
+    }
+    
+    /**
+     * 
+     * @param array $config
+     * @return \Mustache_Loader_FilesystemLoader
+     */
+    private function setConfigs(array $config) 
+    {
+        if(isset($config["partials_loader"])) {
+            $path = $config["partials_loader"];
+            if(is_array($config["partials_loader"])) {
+                $path = $config["partials_loader"][0];
+            }
+            $config["partials_loader"] = new \Mustache_Loader_FilesystemLoader($path);
+        }
+        
+        if(isset($config["loader"])) {
+            $config["loader"] = new \Mustache_Loader_FilesystemLoader($config["loader"][0]);
+        }
+        return $config;
     }
 }

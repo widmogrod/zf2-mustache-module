@@ -38,16 +38,27 @@ class RendererFactory implements FactoryInterface
      */
     private function setConfigs(array $config) 
     {
-        if(isset($config["partials_loader"])) {
+        if(isset($config["partials_loader"]) && !is_object($config["partials_loader"])) {
             $path = $config["partials_loader"];
+            $options = array();
             if(is_array($config["partials_loader"])) {
                 $path = $config["partials_loader"][0];
+                unset($config["partials_loader"][0]);
+                if(is_array($config["partials_loader"]) && count($config["partials_loader"]) > 0){
+                    $options = $config["partials_loader"];
+                }
             }
-            $config["partials_loader"] = new \Mustache_Loader_FilesystemLoader($path);
+            $config["partials_loader"] = new \Mustache_Loader_FilesystemLoader($path, $options);
         }
         
-        if(isset($config["loader"])) {
-            $config["loader"] = new \Mustache_Loader_FilesystemLoader($config["loader"][0]);
+        if(isset($config["loader"]) && !is_object($config["loader"])) {
+            $options = array();
+            $path = $config["loader"][0];
+            unset($config["loader"][0]);
+            if(is_array($config["loader"]) && count($config["loader"]) > 0){
+                $options = $config["loader"];
+            }
+            $config["loader"] = new \Mustache_Loader_FilesystemLoader($path, $options);
         }
         return $config;
     }

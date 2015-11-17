@@ -6,6 +6,7 @@ use Zend\View\Resolver\ResolverInterface;
 use Zend\View\Model\ModelInterface;
 use Zend\View\Model\ViewModel;
 use Mustache\Exception as Exception;
+use Zend\View\Variables;
 
 class Renderer implements RendererInterface
 {
@@ -91,10 +92,15 @@ class Renderer implements RendererInterface
         }
 
         $mustache = $this->getEngine();
-        return $mustache->render(
-            file_get_contents($file),
-            $values
-        );
+        if($values instanceof Variables && $values->offsetExists("content")){
+            $return = $values->offsetGet("content");
+        }else{
+            $return = $mustache->render(
+                file_get_contents($file),
+                $values
+            );
+        }
+        return $return;
     }
 
     /**
